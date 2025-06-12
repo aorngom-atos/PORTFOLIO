@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checker Game – Portfolio Stage</title>
+  <link rel="stylesheet" href="css/Checker-Game.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <a href="index.html">Stage Portfolio</a>
+      </div>
+      <ul class="navbar__links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="Checker-Game.html" class="active">Checker-Game</a></li>
+        <li><a href="bilan.html">Bilan</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="project-detail">
+    <!-- TITRE DU PROJET -->
+    <h1>Checker Game</h1>
+
+    <!-- 1. Contexte et objectifs -->
+    <section id="contexte">
+      <h2>1. Contexte et objectifs</h2>
+      <p>
+        Au début de mon stage, j'ai très vite prévenu que <strong>Next.js</strong> n’avait pas été abordé lors de ma formation à l’IUT.  
+        Pour pallier ce manque et monter en compétence sur les outils utilisés en entreprise, mon maître de stage,
+        <strong>Momar Talla Cissé</strong>, m’a confié la réalisation d’un jeu de dames (Checker Game).  
+        L’objectif était double : prendre en main la configuration d’un projet Next.js et comprendre le cycle complet
+        d’un produit web, de l’interface utilisateur jusqu’à l’API backend.
+      </p>
+      <p>
+        Progressivement, Momar me détaillait chaque étape à accomplir – de la création des routes à l’implémentation
+        du plateau, puis à l’ajout d’options avancées. Je devais explorer la documentation officielle et
+        tester les exemples fournis, tout en appliquant immédiatement les bonnes pratiques de structure de code
+        pour garder un projet lisible.  
+        Cette première mission m’a également permis de m’initier au déploiement local et à l’utilisation de git
+        pour le versioning.
+      </p>
+
+      <!-- DEUX IMAGES CÔTE À CÔTE AVEC ANIMATION -->
+      <div class="image-pair">
+        <figure>
+          <img src="assets/checker-home.png" alt="Page d'accueil Checker Game" class="fade-in-blur" />
+          <figcaption>Page d'accueil du jeu</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/checker-settings.png" alt="Réglages du Checker Game" class="fade-in-blur" />
+          <figcaption>Écran de configuration</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2. Fonctionnalités -->
+    <section id="fonctionnalites">
+      <h2>2. Fonctionnalités</h2>
+      <ul>
+        <li>Choix du niveau de difficulté (de 1 à 5) avec retour graphique immédiat</li>
+        <li>Sélection de la couleur du joueur (Blanc ou Noir)</li>
+        <li>Option “IA contre IA” pour observer deux algorithmes s’affronter</li>
+        <li>Bouton “Commencer le jeu” pour initialiser rapidement une partie</li>
+        <li>Sauvegarde et chargement des parties via localStorage ou API</li>
+        <li>Historique des parties précédentes, consultable page par page</li>
+        <li>Connexion à une API Spring Boot pour persister scores et dates</li>
+      </ul>
+    </section>
+
+        <!-- 3. Implémentation de l'IA et difficulté -->
+        <section id="ia">
+            <h2>3. Implémentation de l'IA et gestion de la difficulté</h2>
+            <p>
+            L’algorithme central est le <em>minimax</em> avec élagage (alpha-beta pruning), qui permet à l’IA
+            d’explorer plusieurs coups à l’avance en évaluant chaque position grâce à une fonction heuristique
+            (comptage de pions, possibilité de captures, proximité de la promotion…).
+            Pour ajuster la difficulté, j’ai modifié la profondeur de recherche : un niveau 1 ne regarde qu’un seul
+            coup à l’avance, tandis qu’un niveau 5 peut explorer jusqu’à 5 coups.  
+            L’optimisation a été la partie la plus longue : gérer efficacement les tableaux JavaScript, éviter les
+            boucles infinies et arrêter la recherche en temps voulu pour ne pas bloquer l’interface.
+            </p>
+            <figure>
+            <video
+                controls
+                width="800"
+                src="assets/Checker.mp4"
+                poster="assets/checker-settings.png"
+            >
+                Votre navigateur ne supporte pas la vidéo HTML5.
+            </video>
+            <figcaption>Exemple de partie avec l’IA (minimax + alpha-beta pruning)</figcaption>
+            </figure>
+        </section>
+        
+    <!-- 4. Intégration backend -->
+    <section id="integration">
+      <h2>4. Intégration avec Spring Boot</h2>
+      <p>
+        Afin de rendre le projet complet, j’ai connecté le front-end Next.js à une API REST développée en
+        Spring Boot. J’ai mis en place des endpoints pour :
+      </p>
+      <ul>
+        <li>Enregistrer une partie sauvegardée (coup par coup ou coup final)</li>
+        <li>Consulter l’historique des parties d’un utilisateur avec pagination</li>
+        <li>Gérer l’authentification par JWT pour sécuriser l’accès</li>
+      </ul>
+      <p>
+        Cette phase m’a permis de me familiariser avec JPA/Hibernate et la configuration CORS
+        (pour autoriser les requêtes du domaine Next.js), tout en assurant une validation
+        côté serveur des données reçues.
+      </p>
+    </section>
+
+    <!-- 5. Refactoring du code -->
+    <section id="refactoring">
+      <h2>5. Refactoring du code</h2>
+      <p>
+        Le code initial était regroupé dans un seul fichier, mêlant logique de plateau,
+        calculs de l’IA et composants visuels. J’ai procédé au :
+      </p>
+      <ul>
+        <li>Découpage en modules React : Plateau, Case, Contrôles, IA, API</li>
+        <li>Extraction des fonctions utilitaires (évaluation heuristique, génération des coups)</li>
+        <li>Simplification des hooks React pour rendre le code plus lisible</li>
+      </ul>
+      <p>
+        Ce refactoring a considérablement réduit la complexité cyclomatique et facilité
+        les tests unitaires.
+      </p>
+    </section>
+
+    <!-- 6. Technologies utilisées -->
+    <section id="technologies">
+      <h2>6. Technologies utilisées</h2>
+      <p>
+        <strong>Front-end :</strong> Next.js, React, JavaScript, CSS (Flexbox)<br/>
+        <strong>Back-end :</strong> Spring Boot, PostgreSQL<br/>
+        <strong>Outils :</strong> GitHub , VS Code, Postman
+      </p>
+    </section>
+
+    <!-- 7. Conclusion -->
+    <section id="conclusion">
+      <h2>7. Conclusion</h2>
+      <p>
+        En réalisant Checker Game, j’ai acquis une solide expérience sur Next.js et son écosystème,
+        renforcé mes compétences en algorithmie (minimax) et découvert le cycle complet
+        d’une application web full-stack. Le refactoring et l’intégration backend m’ont
+        sensibilisé aux bonnes pratiques de clean code et d’architecture modulaire. Cela a énormément facilité mon intégration dans le vrai projet.
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__contact">
+      <span>📞 07 44 87 40 34</span>
+      <span>✉ <a href="mailto:aminataorngom34@gmail.com">aminataorngom34@gmail.com</a></span>
+    </div>
+    <p>© 2025 Aminata Oumou Rassoul Ngom</p>
+  </footer>
+</body>
+</html>

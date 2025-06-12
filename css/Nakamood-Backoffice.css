@@ -1,0 +1,152 @@
+/* Nackamood-BackOffice.css */
+
+/* ===== Reset minimal & structure flex ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+    height: 100%;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* ===== Navbar ===== */
+  /* Logo / titre cliquable de la navbar */
+.navbar__logo a {
+    color: var(--white);
+    text-decoration: none;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #222;
+  }
+  .navbar__logo {
+    color: #fff;
+    font-weight: bold;
+  }
+  .navbar__links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  .navbar__links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .navbar__links a:hover,
+  .navbar__links .active {
+    color: #fff;
+  }
+  
+  /* ===== Main ===== */
+  main.project-detail {
+    flex: 1;                    /* pousse le footer en bas */
+    max-width: 900px;
+    margin: 2rem auto 0 auto;   /* pas de margin-bottom */
+    padding: 0 1rem;
+    color: #333;
+  }
+  main.project-detail h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  main.project-detail section {
+    margin-bottom: 2rem;
+  }
+  main.project-detail section:last-of-type {
+    margin-bottom: 0;           /* supprime l’espace avant le footer */
+  }
+  main.project-detail h2 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  main.project-detail p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  main.project-detail ul,
+  main.project-detail ol {
+    margin-left: 1.5rem;
+  }
+  main.project-detail ul {
+    list-style: disc;
+  }
+  main.project-detail ol {
+    list-style: decimal;
+  }
+  main.project-detail code {
+    background: #f0f0f0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: monospace;
+  }
+  main.project-detail pre {
+    background: #f9f9f9;
+    padding: 1rem;
+    overflow-x: auto;
+    border-radius: 4px;
+  }
+  main.project-detail figure {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  main.project-detail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  main.project-detail figcaption {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.4rem;
+  }
+  
+  /* ===== Footer ===== */
+.site-footer {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 59, 113, 0.9) 0%,
+      rgba(20, 20, 38, 0.9) 100%
+    );
+    color: #ccc;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    margin-top: 0;               /* collé directement sous main */
+    border-top: 2px solid #141426;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+  
+  /* supprime le ::before et le clip-path du footer incliné */
+  .site-footer::before {
+    display: none !important;
+  }
+  
+  .site-footer__contact {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .site-footer__contact a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .site-footer p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  

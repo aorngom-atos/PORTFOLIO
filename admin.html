@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page Admin – Portfolio Stage</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <a href="index.html">Stage Portfolio</a>
+          </div>
+        <ul class="navbar__links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="admin.html" class="active">Travail en cours..</a></li>
+        <li><a href="bilan.html">Bilan</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="project-detail">
+    <h1>Page « Admin » – En cours</h1>
+
+    <!-- 1. Nouvelle carte Agile -->
+    <section id="contexte">
+      <h2>Nouvelle carte Agile – Page Admin</h2>
+      <p>
+        Une nouvelle story (priorité 5) vient de m’être assignée (12/06/2025):  
+        il me faut ajouter une section « Admin » à l’application, accessible
+        uniquement aux utilisateurs au rôle administrateur.  
+        Cette page devra regrouper deux fonctionnalités principales :
+      </p>
+    </section>
+
+    <!-- 2. Objectifs de la carte -->
+    <section id="objectifs">
+      <h2>Objectifs de la carte</h2>
+      <ul>
+        <li>
+          <strong>Ajout manuel d’utilisateurs</strong>  
+          – formulaire « Manuel » avec champs <code>Prénom</code>, <code>Nom</code>, <code>DAS</code> et <code>Rôle</code>,  
+          validations côté client et messages de confirmation/erreur.
+        </li>
+        <li>
+          <strong>Import de lots d’utilisateurs</strong>  
+          – onglet « Import de fichier » avec zone de glisser-déposer et bouton de sélection,  
+          validation du format (<code>.csv</code>, <code>.xlsx</code>) et retour d’état.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 3. Phase actuelle -->
+    <section id="avancement">
+      <h2>Où j’en suis</h2>
+      <p>
+        Je suis actuellement en phase d’étude du code existant pour repérer :
+      </p>
+      <ul>
+        <li>Le composant de navigation où ajouter l’item « Admin »</li>
+        <li>Les routes et les wrappers d’authentification à adapter</li>
+        <li>Les styles et layouts à réutiliser pour garder la cohérence visuelle</li>
+      </ul>
+      <p>
+        Une fois ces points identifiés, j’attaquerai l’implémentation du menu,  
+        puis la création des deux sections de formulaire en m’assurant de la réactivité
+        et des validations côté client.
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__contact">
+      <span>📞 07 44 87 40 34</span>
+      <span>✉ <a href="mailto:aminataorngom34@gmail.com">aminataorngom34@gmail.com</a></span>
+    </div>
+    <p>© 2025 Aminata Oumou Rassoul Ngom</p>
+  </footer>
+
+</body>
+</html>

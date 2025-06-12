@@ -1,0 +1,231 @@
+
+/* ===== Reset minimal ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Variables couleurs ===== */
+:root {
+  --white: #fff;
+  --dark-bg: #0a0a0f;
+  --dark-bg-2: #141426;
+  --btn-bg: linear-gradient(90deg, #ff80bf, #809fff);
+  --accent: #ffc107;
+  --card-bg: rgba(255,255,255,0.05);
+}
+
+/* ===== Global ===== */
+body {
+  font-family: Arial, sans-serif;
+  color: var(--white);
+  background: linear-gradient(
+    135deg,
+    var(--dark-bg) 0%,
+    var(--dark-bg-2) 50%,
+    #003b71 100%
+  );
+  background-attachment: fixed;
+  line-height: 1.5;
+}
+
+/* ===== Container central ===== */
+.container {
+  max-width: 2500px;
+  margin: 0 auto;
+  padding: 0 10%;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  /* conserve ton background actuel */
+}
+.navbar__logo,
+.navbar__links a {
+  color: var(--white);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+}
+/* Logo / titre cliquable de la navbar */
+.navbar__logo a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* espace entre les liens */
+.navbar__links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* survol et focus passent en jaune accent */
+.navbar__links a:hover,
+.navbar__links a:focus {
+  color: var(--accent);
+}
+
+/* lien actif (onglet courant) en jaune + souligné */
+.navbar__links a.active {
+  color: var(--accent);
+  position: relative;
+}
+.navbar__links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+}
+
+
+/* ===== Section Compétences ===== */
+.skills-vertical {
+  display: flex;
+  justify-content: space-between; /* texte à gauche, logos à droite */
+  align-items: flex-start;
+  padding: 4rem 0;
+}
+
+/* Texte de présentation */
+.intro-text {
+  width: 60%;     /* bloque le texte sur 60% du container */
+  margin: 0;      /* supprime l’ancien margin-right */
+}
+.intro-text h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Logos compétences */
+@keyframes pulsate {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.2); }
+}
+.skills-vertical__inner {
+  width: 35%;     /* bloc logos sur 35% */
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 1rem;
+  justify-items: center;
+  align-items: center;
+  margin: 0;      /* pas de décalage à gauche */
+  background: #fff;
+  border-radius: 6px;
+  padding: 1rem;
+
+}
+.skills-vertical__inner img {
+  width: 150px;
+  /*reste identique…*/
+  animation: pulsate 6s ease-in-out infinite;
+}
+
+/* ===== Boutons ===== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--btn-bg);
+  color: var(--white);
+  border-radius: 5px;
+  transition: opacity 0.3s;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* ===== Projets ===== */
+.projects {
+  padding: 3rem 0;
+  text-align: center;
+}
+.projects h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.project-card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+}
+.project-card:hover::after {
+  opacity: 0.6;
+}
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--dark-bg) 0%,
+    var(--dark-bg-2) 50%,
+    #003b71 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.project-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+.project-card p {
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 59, 113, 0.9) 0%,
+    rgba(20, 20, 38, 0.9) 100%
+  );
+  color: #ccc;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  margin-top: 2rem;
+  border-top: 2px solid var(--dark-bg-2);
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0% 100%);
+}
+.site-footer__contact {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+.site-footer__contact a {
+  color: var(--white);
+}
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}

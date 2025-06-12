@@ -1,0 +1,312 @@
+.container {
+    max-width: 2500px;    /* ou la largeur max que tu souhaites */
+    margin: 0 auto;       /* centre horizontalement */
+    padding: 0 10%;       /* 10% de marge à gauche et à droite */
+  }
+  
+  /* Reset minimal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Variables couleurs */
+  :root {
+    --white: #fff;
+    --dark-bg: #000;
+    --btn-bg: linear-gradient(90deg, #ff80bf, #809fff);
+  }
+  
+  /* Global */
+  body {
+    font-family: Arial, sans-serif;
+    color: var(--white);
+    background: linear-gradient(
+      135deg,
+      #0a0a0f 0%,
+      #141426 50%,
+      #003b71 100%
+    );
+    background-attachment: fixed;
+    line-height: 1.5;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+/* ===== Navbar ===== */
+/* ==== Lien actif ==== */
+.navbar__links a.active {
+  color: var(--accent) !important;
+  text-decoration: underline;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.navbar__logo {
+  color: var(--white);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar__links a {
+  color: var(--white);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar__links a:hover,
+.navbar__links a:focus {
+  color: var(--btn-bg);
+}
+
+
+
+  /* Hero */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 4rem 2rem;
+  }
+  .hero__content {
+    flex: 1;
+    min-width: 280px;
+    max-width: 600px;
+  }
+  .hero__content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .hero__content p {
+    margin-bottom: 1.5rem;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--btn-bg);
+    color: var(--white);
+    border-radius: 5px;
+    transition: opacity .3s;
+  }
+  .btn:hover {
+    opacity: 0.8;
+  }
+  .hero__media {
+    flex: 1;            
+    padding: 0;
+    text-align: center;
+  }
+  
+  .hero__media video {
+    width: 100%;        
+    max-width: 600px;    
+    height: auto;        
+  }
+  
+  .hero__media img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid var(--white);
+  }
+  
+ /* Sections de blocs avant/après partenaires */
+.presentation-atos {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    color: #fff;
+  }
+  
+  .presentation-atos h3 {
+    font-size: 1.75rem;   
+    margin-bottom: 1rem;
+  }
+  
+  .presentation-atos p {
+    font-size: 1.125rem;   
+    line-height: 1.6;
+  }
+  
+  .presentation-atos__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  /* PARTENAIRES : défilement horizontal sans marges latérales */
+.marquee {
+    overflow: hidden;
+    padding: 2rem 0;
+  }
+  
+  .marquee__inner {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+  }
+  
+  .marquee__inner img {
+    flex: none;
+    height: 40px;
+    object-fit: contain;
+    background: #fff;
+    padding: 0.25rem;
+    border-radius: 4px;
+  }
+  
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  
+  
+/* Bloc Savoir-faire : titre et texte centrés */
+.presentation-atos.large-text.savoir-faire-full {
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+  
+  .presentation-atos.large-text.savoir-faire-full h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .presentation-atos.large-text.savoir-faire-full p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+  
+  /* Media-grid : image & vidéo côte à côte */
+  .presentation-atos.large-text.savoir-faire-full .media-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  /* Image dans media-grid */
+  .presentation-atos.large-text.savoir-faire-full .image-block img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  /* Vidéo dans media-grid */
+  .presentation-atos.large-text.savoir-faire-full .video-block video {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+ /* Projet interne suivi en stage : Nakamood */
+.project-highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  gap: 2rem;
+  background: transparent; /* remove background */
+}
+
+.project-highlight h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.project-highlight p {
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  color: #ddd;
+  max-width: 600px;
+}
+
+.project-highlight .btn-secondary {
+  padding: 0.75rem 1.5rem;
+  background: var(--btn-bg);
+  color: #fff;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+.project-highlight .btn-secondary:hover {
+  transform: scale(1.05);
+}
+
+/* Logo Nakamood avec zoom modéré */
+.project-logo img {
+  width: 120px;
+  height: auto;
+  animation: zoomInOut 3s ease-in-out infinite;
+}
+
+@keyframes zoomInOut {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.5); } /* zoom x1.5 */
+}
+
+/* Footer avec bloc design et forme inclinée */
+.site-footer {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 59, 113, 0.9) 0%,
+    rgba(20, 20, 38, 0.9) 100%
+  );
+  color: #ccc;
+  text-align: center;
+  padding: 2.5rem 1rem;
+  margin-top: 2rem;
+  border-top: 2px solid #141426;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.site-footer__contact {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.site-footer__contact a {
+  color: #fff;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}

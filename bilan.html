@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bilan de stage</title>
+  <link rel="stylesheet" href="css/bilan.css" />
+</head>
+<body>
+  <!-- NAVBAR identique -->
+  <div class="navbar">
+    <div class="navbar__logo">
+      <a href="index.html">Stage Portfolio</a>
+    </div>
+    <ul class="navbar__links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="competences.html">Compétences</a></li>
+      <li><a href="bilan.html" class="active">Bilan</a></li>
+    </ul>
+  </div>
+
+  <main class="container">
+    <h1>Bilan de stage</h1>
+    <section id="bilan">
+      <table class="bilan-table">
+        <thead>
+          <tr>
+            <th>Compétence</th>
+            <th>Apprentissage critique</th>
+            <th>Projet associé</th>
+            <th>Outil utilisé</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Compétence 1 : Développement d’applications -->
+          <tr>
+            <td rowspan="5">Réaliser un développement d’applications informatiques</td>
+            <td>Prise en main de Next.js : routes, pages, API front</td>
+            <td>Checker‑Game (FRONT)</td>
+            <td><img src="assets/nextjss.svg" alt="Next.js" /><figcaption>Next.js</figcaption></td>
+          </tr>
+          <tr>
+            <td>Implémentation de l’IA minimax (+ alpha‑beta) en JavaScript</td>
+            <td>Checker‑Game (Logique IA)</td>
+            <td><img src="assets/js.webp" alt="JavaScript" /><figcaption>JavaScript</figcaption></td>
+          </tr>
+          <tr>
+            <td>Conception de l’UI mobile-first avec React & CSS</td>
+            <td>Checker‑Game (UI/UX)</td>
+            <td><img src="assets/reactjs.webp" alt="React" /><figcaption>React</figcaption></td>
+          </tr>
+          <tr>
+            <td>Gestion des appels API Spring Boot depuis mobile Flutter</td>
+            <td>Nakamood‑Mobile</td>
+            <td><img src="assets/flutter.png" alt="Flutter" /><figcaption>Flutter</figcaption></td>
+          </tr>
+          <tr>
+            <td>Mise en place de l’authentification JWT côté mobile</td>
+            <td>Nakamood‑Mobile</td>
+            <td><img src="assets/JWT.svg" alt="JWT" /><figcaption>JWT</figcaption></td>
+          </tr>
+
+          <!-- Compétence 2 : Optimisation & sécurité -->
+          <tr>
+            <td rowspan="5">Optimiser des applications informatiques</td>
+            <td>Refactoring : suppression de userId → utilisation JWT backend</td>
+            <td>Nakamood‑Backend & BackOffice</td>
+            <td><img src="assets/JWT.svg" alt="JWT" /><figcaption>JWT</figcaption></td>
+          </tr>
+          <tr>
+            <td>Migration du front mobile vers Flutter 3.29.3</td>
+            <td>Nakamood‑Mobile</td>
+            <td><img src="assets/flutter.png" alt="Flutter" /><figcaption>Flutter</figcaption></td>
+          </tr>
+          <tr>
+            <td>Refactoring code backend & services REST</td>
+            <td>Nakamood‑Backend</td>
+            <td><img src="assets/springboot.png" alt="Spring Boot" /><figcaption>Spring Boot</figcaption></td>
+          </tr>
+          <tr>
+            <td>Conception de la view « Détails Collaborateur » en React/Tailwind</td>
+            <td>BackOffice</td>
+            <td><img src="assets/tailwind.svg" alt="Tailwind CSS" /><figcaption>Tailwind CSS</figcaption></td>
+          </tr>
+          <tr>
+            <td>Gestion d’appels API sécurisés depuis le BackOffice</td>
+            <td>BackOffice</td>
+            <td><img src="assets/reactjs.webp" alt="React" /><figcaption>React</figcaption></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- FOOTER full-width -->
+  <footer class="site-footer">
+    <div class="site-footer__contact">
+      <span>📞 07 44 87 40 34</span>
+      <a href="mailto:aminataorngom34@gmail.com">✉ aminataorngom34@gmail.com</a>
+    </div>
+    <p>© 2025 Aminata Oumou Rassoul Ngom</p>
+  </footer>
+</body>
+</html>

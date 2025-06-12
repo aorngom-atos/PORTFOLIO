@@ -1,0 +1,240 @@
+/* ===== Reset minimal ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* ===== Variables couleurs ===== */
+  :root {
+    --white: #fff;
+    --dark-bg: #0a0a0f;
+    --dark-bg-2: #141426;
+    --btn-bg: linear-gradient(90deg, #ff80bf, #809fff);
+    --accent: #ffc107;
+  }
+  
+  /* ===== Global & layout pour footer collé en bas ===== */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  
+    font-family: Arial, sans-serif;
+    color: var(--white);
+    background: linear-gradient(
+      135deg,
+      var(--dark-bg) 0%,
+      var(--dark-bg-2) 50%,
+      #003b71 100%
+    );
+    background-attachment: fixed;
+    line-height: 1.5;
+  }
+  
+  /* Main prend tout l’espace restant */
+  main {
+    flex: 1;
+  }
+  
+  /* ===== Navbar (full-width, marge 10%) ===== */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 11.5%;      /* <-- 10% de marge latérale */
+  }
+  
+  .navbar__logo a {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+  
+  .navbar__links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .navbar__links a {
+    color: var(--white);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .navbar__links a:hover,
+  .navbar__links a:focus {
+    color: var(--btn-bg);
+  }
+  
+  .navbar__links a.active {
+    color: var(--btn-bg);
+    text-decoration: underline;
+  }
+  
+  /* ===== Container pour tout le “contenu page” ===== */
+  .container {
+    max-width: 2500px;
+    margin: 0 auto;
+    padding: 0 10%;         /* <-- 10% de marge latérale */
+  }
+  
+  /* ===== Titre ===== */
+  .container h1 {
+    font-size: 2rem;
+    margin: 2rem 0 1rem;
+    text-align: center;
+  }
+  
+
+
+/* Bordures blanches et suppression des espacements */
+.bilan-table {
+    width: 100%;
+    border-collapse: collapse !important;
+    margin-bottom: 2rem;
+  }
+  
+  /* Bordure blanche autour de chaque cellule */
+  .bilan-table th,
+  .bilan-table td {
+    border: 1px solid #fff !important;
+    padding: 1rem;
+    vertical-align: middle;
+  }
+  
+  /* En-tête en mauve (var(--accent)), pas de jaune */
+  .bilan-table thead th {
+    background: #ae91ca !important;
+    color: var(--white) !important;
+  }
+  
+  /* Fond transparent pour toutes les cellules de données */
+  .bilan-table tbody td {
+    background: transparent !important;
+    color: var(--white);
+  }
+  
+
+  
+  /* Supprime tout padding ou margin custom sur <tr> */
+  .bilan-table tbody tr {
+    background: transparent;
+  }
+
+  
+  /* === Première colonne violette === */
+  .bilan-table td:first-child {
+    background: #a464e3;
+    color: var(--white);
+  }
+  
+
+  
+  /* (Facultatif) Ajuster les largeurs de colonnes : */
+  .bilan-table th:nth-child(1),
+  .bilan-table td:nth-child(1) { width: 20%; }
+  .bilan-table th:nth-child(2),
+  .bilan-table td:nth-child(2) { width: 35%; }
+  .bilan-table th:nth-child(3),
+  .bilan-table td:nth-child(3) { width: 25%; }
+  .bilan-table th:nth-child(4),
+  .bilan-table td:nth-child(4) { width: 20%; }
+  
+  
+  /* ===== Footer full-width ===== */
+  .site-footer {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 59, 113, 0.9) 0%,
+      rgba(20, 20, 38, 0.9) 100%
+    );
+    color: #ccc;
+    text-align: center;
+    padding: 2.5rem 1rem;      /* vertical uniquement */
+    margin-top: auto;          /* pousse le footer tout en bas */
+    border-top: 2px solid var(--dark-bg-2);
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  
+  .site-footer::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(
+      circle at center,
+      rgba(255,255,255,0.05),
+      transparent 70%
+    );
+    transform: rotate(45deg);
+    pointer-events: none;
+  }
+  
+  .site-footer__contact {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .site-footer__contact a {
+    color: var(--white);
+  }
+  
+  .site-footer p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  /* === Répartir les listes sur 3 colonnes === */
+.bilan-table td:nth-child(2) ul,
+.bilan-table td:nth-child(3) ul {
+  /* 3 colonnes égales */
+  column-count: 3;
+  column-gap: 2rem;
+  /* puces à l’intérieur de chaque colonne */
+  list-style-position: inside;
+}
+
+/* === Mise en forme de la colonne Illustration === */
+.bilan-table td:nth-child(4) .illustrations {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.bilan-table td:nth-child(4) .illustrations img {
+  width: 50px;      /* ajuster si besoin */
+  height: auto;
+  border-radius: 4px;
+}
+
+/* ===== Ajustements spécifiques au tableau Bilan ===== */
+
+/* Centrer verticalement th & td */
+.bilan-table th,
+.bilan-table td {
+  vertical-align: middle;
+}
+
+/* Logo réduit dans la colonne Outil */
+.bilan-table td img {
+  max-width: 60px;      /* ajuste selon ta préférence */
+  height: auto;
+  display: block;
+  margin: 0 auto 0.25rem; /* centré + petit espace sous l’image */
+}
+
+/* Légendes sous chaque logo */
+.bilan-table td figcaption {
+  font-size: 0.75rem;
+  color: var(--white);
+  text-align: center;
+  margin: 0;
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nakamood Backend – Portfolio Stage</title>
+  <link rel="stylesheet" href="css/Nackamood-Backend.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <a href="index.html">Stage Portfolio</a>
+      </div>
+        <ul class="navbar__links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="Nackamood-Backend.html" class="active">Backend</a></li>
+        <li><a href="bilan.html">Bilan</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="project-detail">
+    <h1>Backend du projet Nakamood</h1>
+
+    <!-- 1. Contexte et méthodologie Agile -->
+    <section id="contexte">
+      <h2>1. Contexte et méthodologie Agile</h2>
+      <p>
+        Dans le cadre de mon stage chez Atos Sénégal sur le projet Nakamood, 
+        je suis désormais pleinement intégré à l’équipe backend.  
+        Nous suivons une méthodologie Agile avec des sprints de deux semaines.
+        Mes deux premières « user stories » de priorité 2 portaient sur :
+      </p>
+      <ol>
+        <li>La réalisation d’un état des lieux complet de l’API existante.</li>
+        <li>La refonte de la gestion des tokens JWT pour sécuriser les connexions.</li>
+      </ol>
+      <p>
+        Pour la première story, j’ai consacré une journée et demie à parcourir 
+        l’intégralité du code Java/Spring Boot, annoter chaque contrôleur, 
+        service et repository, puis synthétiser mes observations dans un document 
+        partagé avec l’équipe. Cette base m’a permis d’attaquer rapidement la 
+        deuxième story sans perdre de temps.
+      </p>
+    </section>
+
+    <section id="etat-lieux">
+        <h2>2. État des lieux de l’API</h2>
+        <p class="click-msg">
+          Cliquez sur les images ci-dessous pour les voir en pleine taille.
+        </p>
+      
+        <div class="image-pair">
+          <a href="assets/etat_lieu.png" target="_blank" class="clickable-img">
+            <img src="assets/etat_lieu.png" alt="Extrait état des lieux 1" class="fade-in-blur" />
+          </a>
+          <a href="assets/etat_lieu1.png" target="_blank" class="clickable-img">
+            <img src="assets/etat_lieu1.png" alt="Extrait état des lieux 2" class="fade-in-blur" />
+          </a>
+        </div>
+        <h3 class="image-pair-title">Extraits de l’état des lieux</h3>
+
+      </section>
+      
+
+    <!-- 3. Refactoring de la gestion de token -->
+    <section id="refactoring-token">
+      <h2>3. Refactoring de la gestion de token</h2>
+      <p>
+        Constat : après connexion, l’API renvoyait l’<code>userId</code> brut, ce qui exposait 
+        un identifiant interne. Pour améliorer la sécurité et la cohérence, j’ai procédé en deux étapes :
+      </p>
+      <ol>
+        <li>Identification et suppression de tous les accès directs à l’ID utilisateur.</li>
+        <li>Mise en place d’un JSON Web Token (JWT) contenant les rôles et droits nécessaires.</li>
+      </ol>
+      <p>
+        Les bénéfices immédiats :
+      </p>
+      <ul>
+        <li>Protection des identifiants internes.</li>
+        <li>Claims JWT centralisant permissions et expiration.</li>
+        <li>Code backend plus lisible et maintenable.</li>
+      </ul>
+      <p>
+        Le plus grand défi a été de naviguer dans un code volumineux et de documenter 
+        chaque modification pour ne rien casser en production. Une concentration 
+        maximale m’a permis de terminer cette story en moins de deux jours.
+      </p>
+    </section>
+
+    <!-- 4. Exemple Flutter d’appel au endpoint -->
+    <section id="flutter-example">
+      <h2>4. Exemple Flutter : récupération du token</h2>
+      <p>
+        Pour valider ce refactoring, j’ai développé un petit client Flutter qui 
+        appelle l’endpoint d’authentification et affiche le JWT récupéré :
+      </p>
+      <figure>
+        <img src="assets/flutter-token.png" alt="Capture Flutter affichant le JWT" />
+        <figcaption>Client Flutter affichant le token reçu après connexion</figcaption>
+      </figure>
+      <p>
+        Ce test montre que le backend renvoie désormais exclusivement le token, 
+        et non plus l’ID, et que le client peut directement l’utiliser pour accéder 
+        aux autres endpoints en toute sécurité.
+      </p>
+    </section>
+
+    <!-- 5. Technologies utilisées -->
+    <section id="technologies">
+      <h2>5. Technologies utilisées</h2>
+      <p>
+        <strong>Back-end :</strong> Spring Boot<br/>
+        <strong>Base de données :</strong> PostgreSQL<br/>
+        <strong>Outils :</strong> Postman, VS Code, Git
+      </p>
+    </section>
+
+    <!-- 6. Conclusion -->
+    <section id="conclusion">
+      <h2>6. Conclusion</h2>
+      <p>
+        En travaillant directement sur le backend de Nakamood, j’ai renforcé 
+        mes compétences en sécurité applicative et en architecture microservices.  
+        Cette expérience Agile de bout en bout m’a appris à structurer mon travail, 
+        de l’analyse initiale jusqu’au déploiement en production, avec un souci 
+        constant de qualité et de performance.
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__contact">
+      <span>📞 07 44 87 40 34</span>
+      <span>✉ <a href="mailto:aminataorngom34@gmail.com">aminataorngom34@gmail.com</a></span>
+    </div>
+    <p>© 2025 Aminata Oumou Rassoul Ngom</p>
+  </footer>
+</body>
+</html>

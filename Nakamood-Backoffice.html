@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Nakamood BackOffice – Portfolio Stage</title>
+  <link rel="stylesheet" href="css/Nakamood-Backoffice.css"/>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <a href="index.html">Stage Portfolio</a>
+          </div>
+        <ul class="navbar__links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="competences.html">Compétences</a></li>
+        <li><a href="Nackamood-BackOffice.html" class="active">BackOffice</a></li>
+        <li><a href="bilan.html">Bilan</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="project-detail">
+    <h1>BackOffice du projet Nakamood</h1>
+
+    <!-- 1. Contexte et organisation Agile -->
+    <section id="contexte">
+      <h2>1. Contexte et organisation Agile</h2>
+      <p>
+        Après avoir achevé la partie API, j'ai immédiatement basculé sur le BackOffice,
+        toujours en mode Agile (sprints de deux semaines).  
+        Deux stories de priorité 5 m'ont été assignées :
+      </p>
+      <ol>
+        <li>Refactoring pour purger toute utilisation directe de <code>userId</code>.</li>
+        <li>Création d’une vue « Détails Collaborateur » accessible via un bouton info.</li>
+      </ol>
+      <p>
+        L’objectif était d’harmoniser la sécurité (tout passe désormais par le JWT) 
+        et de fournir aux administrateurs un accès clair et rapide aux informations 
+        et à l’historique de moods de chaque utilisateur.
+      </p>
+    </section>
+
+    <!-- 2. Refactoring userId -->
+    <section id="refacto">
+      <h2>2. Refactoring : suppression de <code>userId</code></h2>
+      <p>
+        J’ai d’abord cherché dans tous les fichiers BackOffice où <code>userId</code> 
+        était récupéré, transmis ou affiché.  
+        Chaque contrôleur, service et repository a été mis à jour pour n’accepter 
+        et n’exposer que le JWT, contenant désormais tous les droits et rôles nécessaires.  
+        Cette opération a simplifié la gestion des permissions et évité toute fuite 
+        d’identifiants internes.
+      </p>
+    </section>
+
+        <!-- 3. Vue Détails Collaborateur -->
+        <section id="details-user">
+            <h2>3. Vue Détails Collaborateur</h2>
+            <p>
+              La story suivante consistait à afficher, au clic sur le bouton info, une popup détaillant :
+            </p>
+            <ul>
+              <li>Nom, prénom et rôle du collaborateur.</li>
+              <li>Une courbe représentant les moods enregistrés, filtrable par date.</li>
+              <li>Un calendrier permettant de choisir un jour précis ou un intervalle.</li>
+            </ul>
+      
+            <h3>3.1 Liste avec bouton Info</h3>
+            <figure>
+              <img src="assets/collabs.png"
+                   alt="Liste des collaborateurs avec bouton info"/>
+              <figcaption>Chaque ligne possède un bouton “info” pour ouvrir la popup.</figcaption>
+            </figure>
+      
+            <h3>3.2 Popup vide (pas de données)</h3>
+            <figure>
+              <img src="assets/PopusNone.png"
+                   alt="Popup détails utilisateur sans données"/>
+              <figcaption>Popup ouverte, pas encore de données à afficher.</figcaption>
+            </figure>
+      
+            <h3>3.3 Popup animée avec la courbe</h3>
+            <p class="click-msg">
+              Courbe avec animation :
+            </p>
+            <figure>
+                <video
+                autoplay
+                loop
+                muted
+                playsinline
+                width="800"
+                src="assets/collab-popup-demo.mp4"
+              >
+                Votre navigateur ne supporte pas la vidéo HTML5.
+              </video>
+              
+              <figcaption>Animation de la popup montrant la courbe des moods.</figcaption>
+            </figure>
+      
+            <h3>3.4 Sélecteur de période</h3>
+            <figure>
+              <img src="assets/Calendar.png"
+                   alt="Calendrier de sélection de date"/>
+              <figcaption>
+                Le calendrier permet de fixer la période d’affichage (jour ou intervalle).
+              </figcaption>
+            </figure>
+      
+            <p>
+              J’ai développé ce composant sous Next.js/React avec des Hooks pour gérer
+              la période et déclencher le fetch des moods via le repository.  
+              Les données sont agrégées par date pour alimenter le graphique <em>TrendChart</em>,
+              testé dans VS Code (Linux) et Firefox, et versionné sur GitHub.
+            </p>
+          </section>
+      
+
+    <!-- 4. Difficultés -->
+    <section id="difficultes">
+      <h2>4. Difficultés rencontrées</h2>
+      <p>
+        La partie la plus complexe a été la gestion des données pour la courbe.  
+        Agréger les moods par date, gérer des plages sans saisies et maintenir 
+        une UI fluide m’a bloquée 3 à 4 jours.  
+        J’ai dû multiplier les logs, les consoles et les tests unitaires 
+        pour obtenir un flux de données fiable et réactif.
+      </p>
+    </section>
+
+    <!-- 5. Technologies utilisées -->
+    <section id="technologies">
+      <h2>5. Technologies utilisées</h2>
+      <p>
+        <strong>Front-end :</strong> Next.js, React, Tailwind CSS<br/>
+        <strong>Back-end :</strong> Spring Boot<br/>
+        <strong>Outils :</strong> VS Code, Firefox, GitHub, Linux
+      </p>
+    </section>
+
+    <!-- 6. Conclusion -->
+    <section id="conclusion">
+      <h2>6. Conclusion</h2>
+      <p>
+        Cette feature BackOffice m’a permis de maîtriser la création de popups dynamiques,
+        l’intégration d’un sélecteur de dates et l’affichage de graphiques.  
+        En dépit de la complexité des transformations de données, j’ai livré un outil 
+        intuitif et performant pour l’administration des collaborateurs. J'ai également eu l'occasion 
+        de découvrir le Tailwind grâce à leur documentation officielle.
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__contact">
+      <span>📞 07 44 87 40 34</span>
+      <span>✉ <a href="mailto:aminataorngom34@gmail.com">aminataorngom34@gmail.com</a></span>
+    </div>
+    <p>© 2025 Aminata Oumou Rassoul Ngom</p>
+  </footer>
+</body>
+</html>
